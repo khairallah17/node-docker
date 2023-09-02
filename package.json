@@ -7,8 +7,7 @@
     "build": "rimraf dist && swc ./src -d dist",
     "start": "node dist/index.js",
     "start:dev": "nodemon",
-    "start:docker": "npm run build && npm run start",
-    // FOR NONE VSCODE USERS TO WATCH FOR CHANGES AND RESTART DOCKER SERVER
+    "start:docker": "npm run build && node --inspect=0.0.0.0 dist/index.js",
     "watch": "watchy --no-init-spawn --debounce 1 -w src -- docker compose restart backend"
   },
   "keywords": [],

@@ -5,5 +5,5 @@
     },
     "triggerTaskOnSave.tasks": {
         "restart backend": ["src/**/*"]
-    }
+    },
 }
