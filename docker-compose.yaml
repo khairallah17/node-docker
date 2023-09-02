@@ -1,0 +1,12 @@
+services:
+  backend:
+    build: .
+    ports:
+      - 8080:8080
+      - 9229:9229 # for debbuging
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: npm run start:docker
+    environment:
+      PORT: 8080
