@@ -9,7 +9,7 @@ const port = Number(env.PORT || 8080)
 app.use(morgan('dev'))
 
 app.get("/", (req, res) => {
-    debugger;
+    debugger
     res.send("new api working and not!!")
 })
 
