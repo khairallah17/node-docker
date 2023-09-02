@@ -1,4 +1,11 @@
 services:
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB: node_docker_dev
+      - POSTGRES_HOST_AUTH_METHOD: trust
   backend:
     build: .
     ports:
@@ -8,5 +15,8 @@ services:
       - .:/usr/src/app
       - /usr/src/app/node_modules
     command: npm run start:docker
+    depends_on:
+      -postgres
     environment:
       PORT: 8080
+      DATABASE_URL: postgres://postgres@postgres/node_docker_dev
